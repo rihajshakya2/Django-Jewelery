@@ -1,0 +1,28 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="row">
+        {% for necklace in products %}
+        <div class="col-lg-6">
+            <img class="thumbnail" src="{{necklace.imageURL}}">
+            <div class="box-element product">
+                <h6><strong>{{necklace.name}}</strong></h6>
+                <hr>
+                <h6 style="color:red">{{necklace.text}}</h6>
+
+                <button data-product={{necklace.id}} data-action="add" class="btn btn-outline-primary add-btn update-cart"> Add to Cart </button>
+
+
+                <h4 style="display: inline-block;float: right"><strong>
+                Rs.{{necklace.price|floatformat:2}}</strong> </h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
+
+
+
+
